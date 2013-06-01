@@ -42,7 +42,7 @@ distclean: clean
 
 install: $(TARGETS)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 0755 -- xmleditor $(DESTDIR)$(BINDIR)/xmleditor
+	$(INSTALL) -m 0755 xmleditor $(DESTDIR)$(BINDIR)/xmleditor
 
 uninstall:
 	$(RM) -- $(DESTDIR)$(BINDIR)/xmleditor

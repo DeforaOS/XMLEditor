@@ -13,7 +13,7 @@ distclean: clean
 
 install:
 	$(MKDIR) $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL) -m 0644 -- xmleditor.desktop $(DESTDIR)$(PREFIX)/share/applications/xmleditor.desktop
+	$(INSTALL) -m 0644 xmleditor.desktop $(DESTDIR)$(PREFIX)/share/applications/xmleditor.desktop
 
 uninstall:
 	$(RM) -- $(DESTDIR)$(PREFIX)/share/applications/xmleditor.desktop
