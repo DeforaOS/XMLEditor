@@ -1,6 +1,6 @@
 /* $Id$ */
 static char const _copyright[] =
-"Copyright (c) 2010-2012 Pierre Pronchery <khorben@defora.org>";
+"Copyright (c) 2010-2013 Pierre Pronchery <khorben@defora.org>";
 /* This file is part of DeforaOS Desktop XMLEditor */
 static char const _license[] =
 "This program is free software; you can redistribute it and/or modify\n"
@@ -176,6 +176,7 @@ XMLEditor * xmleditor_new(void)
 	group = gtk_accel_group_new();
 	xmleditor->window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_add_accel_group(GTK_WINDOW(xmleditor->window), group);
+	g_object_unref(group);
 	gtk_window_set_default_size(GTK_WINDOW(xmleditor->window), 600, 400);
 	_new_set_title(xmleditor);
 #if GTK_CHECK_VERSION(2, 6, 0)
