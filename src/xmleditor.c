@@ -291,6 +291,8 @@ void xmleditor_about(XMLEditor * xmleditor)
 	desktop_about_dialog_set_translator_credits(xmleditor->ab_window,
 			_("translator-credits"));
 	desktop_about_dialog_set_version(xmleditor->ab_window, VERSION);
+	desktop_about_dialog_set_website(xmleditor->ab_window,
+			"http://www.defora.org/");
 	gtk_widget_show(xmleditor->ab_window);
 }
 
