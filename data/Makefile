@@ -13,9 +13,9 @@ distclean: clean
 
 install:
 	$(MKDIR) $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL) -m 0644 xmleditor.desktop $(DESTDIR)$(PREFIX)/share/applications/xmleditor.desktop
+	$(INSTALL) -m 0644 deforaos-xmleditor.desktop $(DESTDIR)$(PREFIX)/share/applications/deforaos-xmleditor.desktop
 
 uninstall:
-	$(RM) -- $(DESTDIR)$(PREFIX)/share/applications/xmleditor.desktop
+	$(RM) -- $(DESTDIR)$(PREFIX)/share/applications/deforaos-xmleditor.desktop
 
 .PHONY: all clean distclean install uninstall
