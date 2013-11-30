@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=XML editor
 Comment=An XML editor
+TryExec=xmleditor
 Exec=xmleditor
 Icon=text-editor
 Type=Application
