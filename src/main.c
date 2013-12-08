@@ -23,7 +23,6 @@
 #include "../config.h"
 #define _(string) gettext(string)
 
-
 /* constants */
 #ifndef PREFIX
 # define PREFIX		"/usr/local"
@@ -36,11 +35,25 @@
 #endif
 
 
+/* prototypes */
+static int _error(char const * message, int ret);
+static int _usage(void);
+
+
 /* functions */
+/* error */
+static int _error(char const * message, int ret)
+{
+	fputs("xmleditor: ", stderr);
+	perror(message);
+	return ret;
+}
+
+
 /* usage */
 static int _usage(void)
 {
-	fputs(_("Usage: xmleditor [file]\n"), stderr);
+	fputs(_("Usage: xmleditor [filename]\n"), stderr);
 	return 1;
 }
 
@@ -51,7 +64,8 @@ int main(int argc, char * argv[])
 	int o;
 	XMLEditor * xmleditor;
 
-	setlocale(LC_ALL, "");
+	if(setlocale(LC_ALL, "") == NULL)
+		_error("setlocale", 1);
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	textdomain(PACKAGE);
 	gtk_init(&argc, &argv);
