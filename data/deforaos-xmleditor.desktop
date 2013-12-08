@@ -2,7 +2,7 @@
 Name=XML editor
 Comment=An XML editor
 TryExec=xmleditor
-Exec=xmleditor
+Exec=xmleditor %f
 Icon=text-editor
 Type=Application
 Categories=Utility;TextEditor;GTK;
