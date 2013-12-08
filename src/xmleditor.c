@@ -341,13 +341,12 @@ gboolean xmleditor_close(XMLEditor * xmleditor)
 	}
 	dialog = gtk_message_dialog_new(GTK_WINDOW(xmleditor->window),
 			GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-			GTK_MESSAGE_WARNING, GTK_BUTTONS_NONE, "%s",
+			GTK_MESSAGE_WARNING, GTK_BUTTONS_NONE,
 #if GTK_CHECK_VERSION(2, 6, 0)
-			_("Warning"));
+			"%s", _("Warning"));
 	gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialog),
-			"%s",
 #endif
-			_("There are unsaved changes.\n"
+			"%s", _("There are unsaved changes.\n"
 				"Discard or save them?"));
 	gtk_dialog_add_buttons(GTK_DIALOG(dialog), GTK_STOCK_CANCEL,
 			GTK_RESPONSE_CANCEL, GTK_STOCK_DISCARD,
