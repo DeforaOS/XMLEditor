@@ -17,6 +17,7 @@ fr.mo: XMLEditor.pot fr.po
 
 clean:
 	$(RM) -- $(XMLEditor.pot_OBJS) $(fr.mo_OBJS)
+	./gettext.sh -c -P "$(PREFIX)" -- "XMLEditor.pot"
 	./gettext.sh -c -P "$(PREFIX)" -- "fr.mo"
 
 distclean: clean
