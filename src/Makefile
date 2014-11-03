@@ -1,4 +1,5 @@
-TARGETS	= xmleditor
+TARGETS	= $(OBJDIR)xmleditor
+OBJDIR	=
 PREFIX	= /usr/local
 DESTDIR	=
 BINDIR	= $(PREFIX)/bin
@@ -18,21 +19,21 @@ INSTALL	= install
 
 all: $(TARGETS)
 
-xmleditor_OBJS = callbacks.o xmleditor.o main.o
+xmleditor_OBJS = $(OBJDIR)callbacks.o $(OBJDIR)xmleditor.o $(OBJDIR)main.o
 xmleditor_CFLAGS = $(CPPFLAGSF) $(CPPFLAGS) $(CFLAGSF) $(CFLAGS)
 xmleditor_LDFLAGS = $(LDFLAGSF) $(LDFLAGS)
 
-xmleditor: $(xmleditor_OBJS)
-	$(CC) -o xmleditor $(xmleditor_OBJS) $(xmleditor_LDFLAGS)
+$(OBJDIR)xmleditor: $(xmleditor_OBJS)
+	$(CC) -o $(OBJDIR)xmleditor $(xmleditor_OBJS) $(xmleditor_LDFLAGS)
 
-callbacks.o: callbacks.c callbacks.h xmleditor.h
-	$(CC) $(xmleditor_CFLAGS) -c callbacks.c
+$(OBJDIR)callbacks.o: callbacks.c callbacks.h xmleditor.h
+	$(CC) $(xmleditor_CFLAGS) -o $(OBJDIR)callbacks.o -c callbacks.c
 
-xmleditor.o: xmleditor.c callbacks.h xmleditor.h ../config.h
-	$(CC) $(xmleditor_CFLAGS) -c xmleditor.c
+$(OBJDIR)xmleditor.o: xmleditor.c callbacks.h xmleditor.h ../config.h
+	$(CC) $(xmleditor_CFLAGS) -o $(OBJDIR)xmleditor.o -c xmleditor.c
 
-main.o: main.c xmleditor.h ../config.h
-	$(CC) $(xmleditor_CFLAGS) -c main.c
+$(OBJDIR)main.o: main.c xmleditor.h ../config.h
+	$(CC) $(xmleditor_CFLAGS) -o $(OBJDIR)main.o -c main.c
 
 clean:
 	$(RM) -- $(xmleditor_OBJS)
@@ -42,7 +43,7 @@ distclean: clean
 
 install: $(TARGETS)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 0755 xmleditor $(DESTDIR)$(BINDIR)/xmleditor
+	$(INSTALL) -m 0755 $(OBJDIR)xmleditor $(DESTDIR)$(BINDIR)/xmleditor
 
 uninstall:
 	$(RM) -- $(DESTDIR)$(BINDIR)/xmleditor
