@@ -393,7 +393,7 @@ int xmleditor_open(XMLEditor * xmleditor, char const * filename)
 	if(xmleditor->xml != NULL)
 		xml_delete(xmleditor->xml);
 	if((xmleditor->xml = xml_new(NULL, filename)) == NULL)
-		return -xmleditor_error(xmleditor, error_get(), 1);
+		return -xmleditor_error(xmleditor, error_get(NULL), 1);
 	if((doc = xml_get_document(xmleditor->xml)) != NULL)
 		_open_document_node(xmleditor, doc->root, NULL);
 	_new_set_title(xmleditor); /* XXX make it a generic private function */
