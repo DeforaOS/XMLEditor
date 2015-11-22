@@ -184,7 +184,7 @@ XMLEditor * xmleditor_new(void)
 #endif
 	g_signal_connect_swapped(G_OBJECT(xmleditor->window), "delete-event",
 			G_CALLBACK(on_closex), xmleditor);
-	vbox = gtk_vbox_new(FALSE, 0);
+	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	/* menubar */
 #ifndef EMBEDDED
 	widget = desktop_menubar_create(_xmleditor_menubar, xmleditor, group);
